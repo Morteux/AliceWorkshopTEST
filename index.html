@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Genshin, Impact, lineup, team, teams, composition, character, build">
+    <meta name="authors" content="Ignacio Meléndez Lapi, Pedro Javier Casado Gálvez">
+
+    <link rel="icon" href="images/favicon.jpg">
+
+    <!-- CSS style -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/collapsible.css">
+    <link rel="stylesheet" href="css/tab_archetypes.css">
+    <link rel="stylesheet" href="css/tab_teams_search.css">
+    <link rel="stylesheet" href="css/tab_characters.css">
+    <link rel="stylesheet" href="css/tab_user.css">
+
+    <!-- JSON data -->
+    <script src="json/weapons.js"></script>
+    <script src="json/archetypes.js"></script>
+    <script src="json/teams.js"></script>
+    <script src="json/characters.js"></script>
+    <script src="json/talents.js"></script>
+    <script src="json/constellations.js"></script>
+    <script src="json/builds.js"></script>
+    <script src="json/best_teams.js"></script>
+    <script src="json/characters_order_priority.js"></script>
+    <script src="json/characters_signature_weapons.js"></script>
+    <script src="json/stats.js"></script>
+    <script src="json/characters_teams.js"></script>
+    <script src="json/characters_scaling.js"></script>
+    <script src="json/weapon_scaling.js"></script>
+
+    <!-- JavaScript libs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- JavaScript logic -->
+    <script src="js/index.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/collapsible.js"></script>
+    <script src="js/autocomplete.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/sorts.js"></script>
+
+    <script src="js/tab_archetypes.js"></script>
+    <script src="js/tab_teams_search.js"></script>
+    <script src="js/tab_characters.js"></script>
+    <script src="js/tab_user.js"></script>
+
+    <script src="js/links.js"></script>
+
+    <script type='text/javascript' src='db/genshindb-nodata.js'></script>
+    <script type='text/javascript' src='db/english-artifacts.js'></script>
+    <script type='text/javascript' src='db/english-characters.js'></script>
+    <script type='text/javascript' src='db/english-constellations.js'></script>
+    <script type='text/javascript' src='db/english-materials.js'></script>
+    <script type='text/javascript' src='db/english-talents.js'></script>
+    <script type='text/javascript' src='db/english-weapons.js'></script>
+
+    <title>Alice Workshop</title>
+</head>
+
+<body>
+
+    <!-- Accept cookies or close tab -->
+    <div id="cookies_background" class="cookies_background">
+        <div class="cookies_container">
+            <img class="cookies_img" src="images/icons/paimon_emoji_02.png" alt="Paimon hungry">
+
+            <div class="cookies_message">
+                AliceWorkshop needs cookies for essential features. You can't use it without them.
+            </div>
+
+            <div class="cookies_buttons">
+                <button class="primary_button" onclick="acceptCookies()">Accept</button>
+                <button class="primary_button" onclick="declineCookies()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome panel -->
+    <div id="welcome_background" class="welcome_background">
+        <div class="welcome_container">
+            <div class="welcome_row">
+                <img class="warning_img" src="images/icons/paimon_glasses.png" alt="Paimon with glasses">
+
+                <div class="welcome_title">
+                    AliceWorkshop
+                </div>
+            </div>
+
+            <div class="welcome_p">
+                <b>- For experienced players:</b> Search and save your favourite <span class="light_link"
+                    onclick="setTabActive('tab_teams_search')">teams</span>, so you can quickly look them up. Check
+                random teams for any content type, or just select a random team of your favourite list if you don't know
+                what to play. Filter by specific <span class="light_link"
+                    onclick="setTabActive('tab_archetype_search')">archetypes</span> and characters in team. You can
+                look about more detailed info about <span class="light_link"
+                    onclick="setTabActive('tab_characters')">characters</span>, like their multipliers, stats, ascension
+                material and more... Also, you have access to <span class="light_link"
+                    onclick="setTabActive('tab_user')">pre-release characters</span>.
+            </div>
+
+            <div class="welcome_p">
+                <b>- For new/casuals players:</b> Discover new <span class="light_link"
+                    onclick="setTabActive('tab_teams_search')">teams</span> with your favourite characters, including
+                full <span class="light_link" onclick="setTabActive('tab_characters')">builds</span> general guides. You
+                will be able to save them and have a briefly description and rotation to try them. You can search teams
+                with your current built/owned <span class="light_link"
+                    onclick="setTabActive('tab_characters')">characters</span>, being possible to filter with one or
+                more characters. Learn about <span class="light_link"
+                    onclick="setTabActive('tab_archetype_search')">archetypes</span>, and how to create teams with
+                examples and random teams. You will have also a mini-guide for building characters.
+            </div>
+
+            <div id="disclaimer_tab_teams_search" class="disclaimer_panel">
+
+                <img class="warning_img" src="images/icons/paimon_emoji_03.png" alt="Paimon with glasses">
+
+                <div class="">
+                    <div class="ranking_title">
+                        Teams disclaimer
+                    </div>
+
+                    <div class="disclaimer_text">
+                        All teams are selected and/or reviewed by our team creator members (yes, they are humans).
+                        Therefore, all info displayed by AW (AliceWorkshop) is, to a greater or lesser extent,
+                        subjective to the info we have gathered so far and can exists inaccuracies. You can suggest
+                        changes and additions in our <a href="https://discord.gg/JRNkss7azk">official Discord
+                            channel</a>!
+                    </div>
+                </div>
+            </div>
+
+            <div id="disclaimer_tab_teams_search" class="disclaimer_panel">
+
+                <img class="warning_img" src="images/icons/paimon_calc.gif" alt="Paimon with glasses">
+
+                <div class="">
+                    <div class="ranking_title">
+                        Viabilities disclaimer
+                    </div>
+
+                    <div class="disclaimer_text">
+                        Tags are a general guideline not Archon's law, specifically in teams viabilities (recommended, viable,
+                        for fun and unique). A team with recommended tag implies that it is the best, or one of the best, teams
+                        for a character in that team.
+                    </div>
+                </div>
+            </div>
+
+            <div class="welcome_row">
+                <button class="primary_button"
+                    onclick="closeWindow('welcome_background'); acceptWelcome();">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="workinprogress_panel" class="workinprogress_panel">
+        <img class="workinprogress_img" src="images/icons/paimon_emoji_01.png" alt="Paimon muscles">
+
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <div class="workinprogress_vertical_text ticker__item">
+                    WORK IN PROGRESS
+                </div>
+            </div>
+        </div>
+        
+        <img class="workinprogress_img" src="images/icons/paimon_emoji_01.png" alt="Paimon muscles">
+    </div>
+
+    <button onclick="scrollToTop()" id="scroll_top_button" class="scroll_top_button"></button>
+
+    <div id="discord_widget" class="discord_widget">
+        <img class="close_icon close_left" src="images/icons/close_icon.png" alt="Close icon"
+            onclick="closeWindow('discord_widget')">
+
+        <img class="discord_img" src="images/icons/paimon_emoji_06.png" alt="One mora emoji">
+
+        <div>
+            If you want to share your thoughts or help us with new teams not added yet, you can join our <a
+                href="https://discord.gg/JRNkss7azk">official Discord channel</a> and suggest changes or additions!
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div id="main" class="main">
+
+        <div id="tabs_container" class="tabs_container">
+            <div id="tab_archetype_search_button" class="disabled_tab_button">Archetypes</div>
+            <div id="tab_teams_search_button" class="disabled_tab_button">Teams</div>
+            <div id="tab_characters_button" class="disabled_tab_button">Characters</div>
+            <div id="tab_user_button" class="disabled_tab_button">User</div>
+        </div>
+
+        <div id="tab_archetype_search" class="tab_archetype_search">
+            <!-- <iframe class="discord_widget" src="https://discord.com/widget?id=1218903092066517074&theme=dark" width="250" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> -->
+
+            <div id="archetypes_container_filters" class="archetypes_container">
+
+            </div>
+
+            <div id="archetypes_container" class="archetypes_container">
+
+            </div>
+
+        </div>
+
+        <div id="tab_teams_search" class="tab_teams_search">
+            <!-- <iframe class="discord_widget" src="https://discord.com/widget?id=1218903092066517074&theme=dark" width="250" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> -->
+
+            <!-- <div id="disclaimer_tab_teams_search" class="disclaimer_panel">
+                <img class="close_icon close_right" src="images/icons/close_icon.png" alt="Close icon"
+                    onclick="closeWindow('disclaimer_tab_teams_search')">
+
+                <img class="warning_img" src="images/icons/paimon_glasses.png" alt="Paimon with glasses">
+
+                <div class="">
+                    <div class="ranking_title">
+                        Disclaimer
+                    </div>
+
+                    <div class="disclaimer_text">
+                        All teams, including their viabilities, rotations and descriptions are selected and/or reviewed
+                        by our team creator members. Therefore, all teams are, at least, a bit subjective to the info we
+                        have gathered so far and can exists inaccuracies specifically in teams viabilities (recommended,
+                        viable, for fun and unique). You can suggest changes and additions in our <a
+                            href="https://discord.gg/JRNkss7azk">official Discord channel</a>!
+                    </div>
+
+                    <div class="disclaimer_text">
+                        <span class="ranking_title">Viabilities disclaimer:</span> tags are a general guideline not Archon's law. A team with recommended tag implies that it is the best, or one of the best, teams for a character in that team.
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="search_form_container">
+
+                <div class="sort_container">
+
+                    <div class="list_choice">
+                        <div class="list_choice_title">Sort by</div>
+                        <div class="list_choice_objects">
+                            <label>
+                                <input type="radio" name="sort" id="sort_team_id"
+                                    onchange="sortTeamsMatchedBy('team_id');" value="team_id" checked /> <span>Team
+                                    ID</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="sort" id="sort_viability"
+                                    onchange="sortTeamsMatchedBy('viability');" value="viability" />
+                                <span>Viability</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="sort" id="sort_archetype"
+                                    onchange="sortTeamsMatchedBy('archetype');" value="archetype" />
+                                <span>Archetype</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="list_choice">
+                        <div class="list_choice_title">Order</div>
+                        <div class="list_choice_objects">
+                            <label>
+                                <input type="radio" name="order_direction" id="sort_ascending"
+                                    onchange="setOrderDirection(true);" value="ascending" />
+                                <span>
+                                    <!-- <img class="list_choice_object_image" src="images/ascending_order.png"> -->
+                                    Ascending</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="order_direction" id="sort_descending"
+                                    onchange="setOrderDirection(false);" value="descending" checked />
+                                <span>
+                                    <!-- <img class="list_choice_object_image" src="images/descending_order.png"> -->
+                                    Descending</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="search_form">
+                    <button type="submit" class="search_random_button" onclick="resetResult(); searchRandom()"></button>
+                    <input id="search_form_text_input_id" type="text" placeholder="ID"
+                        class="search_form_text_input small_input">
+                    <button id="search_form_text_input_id_button" type="submit" class="search_button"
+                        onclick="resetResult(); searchQuery()"></button>
+                </div>
+
+                <div class="filter_container">
+                    <div>
+                        <span>Favorites</span>
+                        <label class="switch">
+                            <input id="favorites_switch" type="checkbox"
+                                onclick="toggleFilterFavorite(); resetResult(); searchQuery()">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div>
+                        <span>Characters owned</span>
+                        <label class="switch">
+                            <input id="characters_switch" type="checkbox"
+                                onclick="toggleFilterCharactersOwned(); resetResult(); searchQuery()">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <button class="primary_button" onclick="toggleExtraFiltersContainer()">+</button>
+                </div>
+
+            </div>
+
+            <div class="search_form_characters_container">
+                <div class="autocomplete">
+                    <input id="search_form_text_input_1" type="text" placeholder="Character 1"
+                        class="search_form_text_input">
+                </div>
+
+                <div class="autocomplete">
+                    <input id="search_form_text_input_2" type="text" placeholder="Character 2"
+                        class="search_form_text_input">
+                </div>
+
+                <div class="autocomplete">
+                    <input id="search_form_text_input_3" type="text" placeholder="Character 3"
+                        class="search_form_text_input">
+                </div>
+
+                <div class="autocomplete">
+                    <input id="search_form_text_input_4" type="text" placeholder="Character 4"
+                        class="search_form_text_input">
+                </div>
+            </div>
+
+            <div id="extra_filters_container" class="extra_filters_container">
+            </div>
+
+            <div id="result_container" class="result_container">
+            </div>
+
+            <div id="result_counter_container" class="result_counter_container">Showing
+                <span id="result_counter"></span> teams of
+                <span id="result_max_counter"></span>
+            </div>
+
+        </div>
+
+        <div id="tab_characters" class="tab_characters">
+            <div id="menu_characters" class="menu_characters"></div>
+
+            <div id="menu_characters_info" class="menu_characters_info">
+                <button class="primary_button reset_menu_characters_button" onclick="resetMenuCharacters()">Go to
+                    characters</button>
+            </div>
+        </div>
+
+        <div id="tab_user" class="tab_user">
+
+            <!-- <iframe class="discord_widget" src="https://discord.com/widget?id=1218903092066517074&theme=dark" width="250" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> -->
+
+            <!-- <div class="login_menu">
+                <input id="login_name" type="text" placeholder="Username" class="login_input">
+                <input id="login_password" type="password" placeholder="Password" class="login_input">
+
+                <div>
+                    <button class="primary_button" onclick="console.log('Login')">Login</button>
+                    <button class="primary_button" onclick="console.log('Signup')">Signup</button>
+                </div>
+
+                <div id="login_error_container" class="ranking_panel warning_panel" style="display: none;">
+                    <div class="ranking_row">
+                        <img class="warning_img" src="images/icons/paimon_glasses.png" alt="Paimon with glasses">
+        
+                        <div id="login_error_info">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+            <!-- <div style="display: none;"> -->
+            <div id="navigation_menu" class="navigation_menu">
+                <div id="menu_configuration_button">Configuration</div>
+                <div id="menu_characters_check_button">Characters owned</div>
+
+                <div id="menu_teams_creator_button">Team creator</div>
+
+                <div id="menu_json_validator_button">Admin JSON Validator</div>
+                <div id="menu_team_json_sort_button">Admin Sort teams JSON</div>
+                <div id="menu_stats_calculator_button">Admin Stats Calculator</div>
+            </div>
+
+            <div id="menu_configuration" class="menu_configuration">
+
+                <div class="menu_configuration_row">
+                    <fieldset class="menu_configuration_traveler">
+                        <legend>Select your traveler</legend>
+
+                        <div id="traveler_Aether" class="character_container" onclick="setTraveler('Aether')">
+                            <img class="character_icon character_5_stars"
+                                src="images/characters/UI_AvatarIcon_PlayerBoy.png" alt="Character icon for Aether">
+                            <div class="rarity_container">
+                                <img class="rarity" src="images/rarity/star.svg">
+                                <img class="rarity" src="images/rarity/star.svg">
+                                <img class="rarity" src="images/rarity/star.svg">
+                                <img class="rarity" src="images/rarity/star.svg">
+                                <img class="rarity" src="images/rarity/star.svg">
+                            </div>
+                            <div class="character_name character_name_short">Aether</div>
+                        </div>
+
+                        <div id="traveler_Lumine" class="character_container" onclick="setTraveler('Lumine')">
+                            <img class="character_icon character_5_stars"
+                                src="images/characters/UI_AvatarIcon_PlayerGirl.png" alt="Character icon for Lumine">
+                            <div class="rarity_container">
+                                <img class="rarity" src="images/rarity/star.svg">
+                                <img class="rarity" src="images/rarity/star.svg">
+                                <img class="rarity" src="images/rarity/star.svg">
+                                <img class="rarity" src="images/rarity/star.svg">
+                                <img class="rarity" src="images/rarity/star.svg">
+                            </div>
+                            <div class="character_name character_name_short">Lumine</div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset id="menu_configuration_prerelease" class="menu_configuration_prerelease">
+                        <legend>Prerelease content</legend>
+
+                    </fieldset>
+                </div>
+
+                <fieldset class="menu_discord">
+                    <legend>Official Discord channel</legend>
+
+                    <img class="discord_img" src="images/icons/paimon_emoji_06.png" alt="One mora emoji">
+
+                    <div>
+                        If you want to share your thoughts or help us with new teams not added yet, you can join our <a
+                            href="https://discord.gg/JRNkss7azk" class="light_link">official Discord channel</a> and
+                        suggest changes or additions!
+                    </div>
+                </fieldset>
+
+                <fieldset class="menu_info">
+                    <legend>Who are AliceWorkshop aiming for?</legend>
+                    <div class="welcome_p">
+                        <b>- For experienced players:</b> Search and save your favourite <span class="light_link"
+                            onclick="setTabActive('tab_teams_search')">teams</span>, so you can quickly look them up.
+                        Check
+                        random teams for any content type, or just select a random team of your favourite list if you
+                        don't know
+                        what to play. Filter by specific <span class="light_link"
+                            onclick="setTabActive('tab_archetype_search')">archetypes</span> and characters in team. You
+                        can
+                        look about more detailed info about <span class="light_link"
+                            onclick="setTabActive('tab_characters')">characters</span>, like their multipliers, stats,
+                        ascension
+                        material and more... Also, you have access to some <span class="light_link"
+                            onclick="setTabActive('tab_user')">pre-release characters</span>.
+                    </div>
+
+                    <div class="welcome_p">
+                        <b>- For new/casuals players:</b> Discover new <span class="light_link"
+                            onclick="setTabActive('tab_teams_search')">teams</span> with your favourite characters,
+                        including
+                        full <span class="light_link" onclick="setTabActive('tab_characters')">builds</span> general
+                        guide. You
+                        will be able to save them and have a briefly description and rotation to try them. You can
+                        search teams
+                        with your current built/owned <span class="light_link"
+                            onclick="setTabActive('tab_characters')">characters</span>, being possible to filter with
+                        one or
+                        more characters. Learn about <span class="light_link"
+                            onclick="setTabActive('tab_archetype_search')">archetypes</span>, and how to create teams
+                        with
+                        examples and random teams. You will have also a mini-guide for building characters.
+                    </div>
+                </fieldset>
+
+                <fieldset class="menu_disclaimer">
+                    <legend>Disclaimers</legend>
+                    <div id="disclaimer_tab_teams_search" class="disclaimer_panel">
+
+                        <img class="warning_img" src="images/icons/paimon_emoji_03.png" alt="Paimon with glasses">
+
+                        <div class="">
+                            <div class="ranking_title">
+                                Teams disclaimer
+                            </div>
+
+                            <div class="disclaimer_text">
+                                All teams are selected and/or reviewed by our team creator members (yes, they are
+                                humans).
+                                Therefore, all info displayed by AW (AliceWorkshop) is, to a greater or lesser extent,
+                                subjective to the info we have gathered so far and can exists inaccuracies. You can
+                                suggest
+                                changes and additions in our <a href="https://discord.gg/JRNkss7azk">official Discord
+                                    channel</a>!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="disclaimer_tab_teams_search" class="disclaimer_panel">
+
+                        <img class="warning_img" src="images/icons/paimon_calc.gif" alt="Paimon with glasses">
+
+                        <div class="">
+                            <div class="ranking_title">
+                                Viabilities disclaimer
+                            </div>
+
+                            <div class="disclaimer_text">
+                                Tags are a general guideline not Archon's law, specifically in teams viabilities (recommended,
+                                viable,
+                                for fun and unique). A team with recommended tag implies that it is the best, or one of the
+                                best, teams
+                                for a character in that team.
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="menu_configuration_cookies">
+                    <legend>User local storage</legend>
+
+                    <button class="primary_button" onclick="deleteFavoriteTeams()">Remove favorite teams</button>
+
+                    <button class="primary_button" onclick="deleteUserCharacters()">Remove characters owned</button>
+
+                    <button class="primary_button" onclick="deleteAllLocalStorage()">Remove ALL user info</button>
+                </fieldset>
+            </div>
+
+            <div id="menu_characters_check" class="menu_characters_check">
+            </div>
+
+
+
+
+            
+            <div id="menu_teams_creator" class="menu_teams_creator">
+                <div class="tag_input_row">
+                    <span class="light_text">#</span>
+                    <input id="id_input" type="number" placeholder="#" class="id_input">
+                </div>
+
+                <input id="team_name_select" type="text" placeholder="Team name" class="short_select">
+                <input id="description_select" type="text" placeholder="Description" class="long_select">
+                <input id="rotation_select" type="text" placeholder="Rotation" class="long_select">
+                <input id="archetype_select" type="text" placeholder="Archetype" class="short_select">
+
+                <div class="list_choice">
+                    <div class="list_choice_title">Viability</div>
+                    <div id="list_choice_objects" class="list_choice_objects">
+                        <label>
+                            <input type="radio" name="team_creator_viability" id="team_creator_recommended" value="Recommended"
+                                checked /> <span>Recommended</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="team_creator_viability" id="team_creator_viable" value="Viable" />
+                            <span>Viable</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="team_creator_viability" id="team_creator_for_fun"
+                                value="For fun" /> <span>For fun</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="team_creator_viability" id="team_creator_unique" value="Unique" />
+                            <span>Unique</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row_selects">
+                    <div class="autocomplete">
+                        <input id="character_1_select" type="text" name="character_1_select" placeholder="Character 1"
+                            class="short_select">
+                    </div>
+                    <div class="autocomplete">
+                        <input id="character_2_select" type="text" name="character_2_select" placeholder="Character 2"
+                            class="short_select">
+                    </div>
+                    <div class="autocomplete">
+                        <input id="character_3_select" type="text" name="character_3_select" placeholder="Character 3"
+                            class="short_select">
+                    </div>
+                    <div class="autocomplete">
+                        <input id="character_4_select" type="text" name="character_4_select" placeholder="Character 4"
+                            class="short_select">
+                    </div>
+                </div>
+
+                <div class="row_selects">
+                    <div class="autocomplete">
+                        <input id="build_1_select" type="text" name="build_1_select" placeholder="Build 1"
+                            class="short_select">
+                    </div>
+                    <div class="autocomplete">
+                        <input id="build_2_select" type="text" name="build_2_select" placeholder="Build 2"
+                            class="short_select">
+                    </div>
+                    <div class="autocomplete">
+                        <input id="build_3_select" type="text" name="build_3_select" placeholder="Build 3"
+                            class="short_select">
+                    </div>
+                    <div class="autocomplete">
+                        <input id="build_4_select" type="text" name="build_4_select" placeholder="Build 4"
+                            class="short_select">
+                    </div>
+                </div>
+
+                <button class="primary_button" onclick="printTeamJSON()">Build JSON</button>
+
+                <textarea id="json_result" class="json_result" rows="4" cols="50"></textarea>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            
+            <div id="menu_json_validator" class="menu_json_validator">
+
+                <button class="primary_button" onclick="validateJSON()">Validate JSON</button>
+
+                <div id="json_validator_result" class="json_validator_result"></div>
+
+            </div>
+
+            <div id="menu_team_json_sort" class="menu_team_json_sort">
+
+                <button class="primary_button" onclick="sortTeamsJSON()">Sort teams JSON</button>
+
+                <div>Check the console to see the result (F12)</div>
+
+            </div>
+
+            <div id="menu_stats_calculator" class="menu_stats_calculator">
+
+                <button class="primary_button" onclick="calculateStats()">Calculate Stats</button>
+
+                <div>Check the console to see the result (F12)</div>
+
+            </div>
+
+        </div>
+
+        <!-- </div> -->
+    </div>
+    </div>
+</body>
+
+</html>

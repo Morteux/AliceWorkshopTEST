@@ -1,0 +1,31 @@
+.tabs_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 90%;
+
+    font-family: GenshinImpact;
+}
+
+.tabs_container>div {
+    flex: 1 1 0;
+    cursor: pointer;
+    padding: 2vh;
+    text-align: center;
+}
+
+.active_tab_button {
+    background-color: var(--secondary_color);
+    color: var(--light_text);
+}
+
+.disabled_tab_button {
+    background-color: var(--tertiary_color);
+}
+
+.disabled_tab_button:hover {
+    background-color: var(--secondary_color);
+    color: var(--light_text);
+}

@@ -1,0 +1,38 @@
+.collapsible {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    outline: none;
+    
+    border-radius: 3px;
+}
+
+.collapsible_image {
+    height: 3vh;
+}
+
+.active,
+.collapsible:hover {
+    background-color: var(--shadow_background);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.collapsible_content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+    width:100%;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    color: var(--dark_text);
+}

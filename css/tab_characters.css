@@ -1,0 +1,1104 @@
+.tab_characters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu_characters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 90%;
+}
+
+.menu_characters>div {
+    margin: 1vh;
+}
+
+.menu_characters_info {
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+
+    width: 90vw;
+    height: 80vh;
+
+    margin-top: 5vh;
+}
+
+.tab_character_search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 2vh 0vw;
+}
+
+.reset_menu_characters_button {
+    position: absolute;
+
+    top: -5vh;
+    right: 0%;
+
+    margin: 2vh 1vw;
+}
+
+.menu_characters_image {
+    position: fixed;
+    bottom: 0px;
+    left: -15%;
+
+    width: 100vw;
+    height: 100vh;
+
+    opacity: 30%;
+    /* background-image: url(''); */
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    z-index: -1;
+}
+
+.left_menu_info {
+    position: fixed;
+    top: 10%;
+    left: 5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+.menu_character_name_container {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: left;
+
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    margin-left: 3vw;
+
+    font-size: 10vh;
+    font-family: GenshinImpact;
+}
+
+.menu_character_name {
+    /* font-size: 8vh; */
+    margin-right: 1vw;
+
+    color: var(--light_text);
+}
+
+.menu_character_name_short {
+    font-size: 8vh;
+}
+
+.menu_character_name_medium {
+    font-size: 7vh;
+}
+
+.menu_character_name_long {
+    font-size: 6vh;
+}
+
+.menu_character_title {
+    font-size: 2vh;
+
+    color: var(--gray_text);
+}
+
+.menu_character_icon {
+    width: 10vw;
+    max-width: inherit;
+    border-top-left-radius: 8%;
+    border-top-right-radius: 8%;
+    border-bottom-right-radius: 20%;
+
+    background: linear-gradient(to bottom right, transparent 50%, black 100%);
+
+    margin-left: 3vw;
+    margin-bottom: 3vh;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.menu_character_4_stars {
+    background-color: var(--character_4_stars);
+}
+
+.menu_character_5_stars {
+    background-color: var(--character_5_stars);
+}
+
+.menu_character_row_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 1.5vh;
+
+    color: var(--light_text);
+
+    height: 4vh;
+    width: 15vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    margin-left: 3vw;
+}
+
+.menu_character_row_light {
+    background-color: var(--secondary_color);
+}
+
+.menu_character_row_dark {
+    background-color: var(--primary_color);
+}
+
+.menu_row_img {
+    width: 2vw;
+    margin-left: 1vw;
+}
+
+.menu_row_img_small {
+    width: 1.5vw;
+    margin-left: 1vw;
+}
+
+.menu_value_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu_character_column_info {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+
+    font-size: 1.5vh;
+
+    color: var(--light_text);
+
+    width: 15vw;
+    padding: 1vh 1vw;
+
+    margin-left: 3vw;
+}
+
+.menu_cv_container {
+    padding-left: 1vw;
+}
+
+.right_menu_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 45vw;
+}
+
+.right_menu_buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: 10%;
+    margin-top: 5vh;
+}
+
+.right_menu_buttons>div {
+    flex: 1 1 0;
+    cursor: pointer;
+    padding: 1.5vh 1vw;
+    text-align: center;
+
+    width: 100%;
+}
+
+.active_menu_character_button {
+    background-color: var(--secondary_color);
+    color: var(--light_text);
+}
+
+.disabled_menu_character_button {
+    background-color: var(--tertiary_color);
+}
+
+.disabled_menu_character_button:hover {
+    background-color: var(--secondary_color);
+    color: var(--light_text);
+}
+
+.hide_menu_character_container {
+    display: none;
+}
+
+.right_menu_content {
+    width: 100%;
+    height: 90%;
+}
+
+.menu_panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2vh 1vw;
+
+    border: solid 2px var(--tertiary_color);
+    border-radius: 10px;
+
+    color: var(--light_text);
+
+    text-wrap: wrap;
+
+    background-color: var(--secondary_color_opacity);
+}
+
+.menu_panel_column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2vh 1vw;
+    margin: 2vh 0vw;
+
+    border: solid 2px var(--tertiary_color);
+    border-radius: 10px;
+
+    color: var(--light_text);
+
+    text-wrap: wrap;
+
+    background-color: var(--secondary_color_opacity);
+}
+
+.slider_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+
+    margin: 2vh 0vw;
+
+    color: var(--light_text);
+    font-size: large;
+}
+
+.menu_slider_output {
+    font-size: xx-large;
+}
+
+.menu_slider {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 0vh;
+    border-radius: 5px;
+    background: var(--tertiary_color);
+    outline: none;
+}
+
+.menu_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 70px;
+    height: 70px;
+    border: 0;
+    background-image: url('../images/icons/slider_icon.webp');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.menu_slider::-moz-range-thumb {
+    width: 70px;
+    height: 70px;
+    border: 0;
+    background-image: url('../images/icons/slider_icon.webp');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.menu_slider_2::-webkit-slider-thumb {
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/icons/slider_icon_2.png');
+}
+
+.menu_slider_2::-moz-range-thumb {
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/icons/slider_icon_2.png');
+}
+
+.slider_output {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    margin: 1vh 2vw;
+
+    width: 100%;
+}
+
+.slider_output_text {
+    margin: 1vh 2vw;
+
+    width: 100%;
+}
+
+.material_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin: 1vh 1vw;
+}
+
+.material_container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 4vh;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+
+    border-radius: 11px;
+    background-color: var(--light_background);
+
+    max-width: 7vw;
+}
+
+.material_container:hover {
+    box-shadow: 5px 5px 5px black;
+}
+
+.material_icon {
+    width: 13vh;
+    max-width: inherit;
+    border-top-left-radius: 8%;
+    border-top-right-radius: 8%;
+    border-bottom-right-radius: 20%;
+
+    background: linear-gradient(to bottom right, transparent 50%, black 100%);
+}
+
+.material_icon_small {
+    width: 9vh;
+    max-width: inherit;
+    border-top-left-radius: 8%;
+    border-top-right-radius: 8%;
+    border-bottom-right-radius: 20%;
+
+    background: linear-gradient(to bottom right, transparent 50%, black 100%);
+}
+
+.material_count {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: max-content;
+
+    color: var(--dark_text);
+    font-weight: bold;
+    font-family: GenshinImpact;
+
+    padding: 0.5vh 0.5vw;
+}
+
+.material_count_small {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: max-content;
+
+    color: var(--dark_text);
+    font-weight: bold;
+    font-size: small;
+    font-family: GenshinImpact;
+
+    padding: 0.5vh 0.5vw;
+}
+
+.talent_info_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+
+    width: 100%;
+}
+
+.talent_name_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+
+    width: 100%;
+}
+
+.talent_img {
+    width: 4vw;
+    margin-left: 1vw;
+}
+
+.talent_img_small {
+    width: 3vw;
+}
+
+.talent_name {
+    font-size: x-large;
+    margin-left: 1vw;
+}
+
+.talent_info {
+    margin: 2vh 1vw;
+}
+
+.talent_subtitle {
+    font-weight:normal;
+}
+
+.talent_table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 1vh;
+
+    width: 80%;
+
+    font-size: small;
+
+    border: solid 2px var(--tertiary_color);
+}
+
+.talent_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.talent_data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 1vh 1vw;
+}
+
+.talent_data_left {
+    flex: 2;
+    justify-content: left;
+}
+
+.talent_data_right {
+    flex: 1;
+    justify-content: right;
+}
+
+.weapons_stats_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-size: x-large;
+    width: 80%;
+}
+
+.weapon_stat {
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+}
+
+.weapon_substat {
+    flex: 2;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+.vertical_separator {
+    border: solid 2px var(--tertiary_color);
+
+    height: 4vh;
+    margin: 0vh 1vw;
+}
+
+.build_title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 3vh;
+}
+
+.build_subtitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+
+    width: 100%;
+
+    font-size: 2vh;
+
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.build_search_random_button {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.build_weapon_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+
+.build_weapon_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    margin: 1vh 2%;
+}
+
+.build_weapon_info > img {
+    flex: 1;
+}
+
+.build_weapon_name {
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.build_set_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.build_set_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 1vh 1vw;
+}
+
+.build_substats {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    margin: 1vh 0vw;
+
+    width: 100%;
+
+    font-size: medium;
+}
+
+.build_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 100%;
+}
+
+.build_row > div {
+    flex: 1;
+
+    /* height: 10vh; */
+
+    /* margin: 1vh 0.5vw; */
+    /* margin-top: 1vh; */
+}
+
+.build_talent_separator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-size: larger;
+
+    height: 100%;
+
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+}
+
+.build_talent_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.build_constellation_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+
+    font-size: medium;
+}
+
+.weapon_container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+
+    border-top-left-radius: 8%;
+    border-top-right-radius: 8%;
+    border-bottom-right-radius: 23%;
+
+    max-width: 7vw;
+}
+
+.weapon_container:hover {
+    box-shadow: 5px 5px 5px black;
+}
+
+.build_description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 2vh 1vh 0vw 0vw;
+}
+
+.build_no_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    font-size: medium;
+
+    margin: 1vh 0vw;
+}
+
+.build_artifacts_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+
+.build_set_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.build_artifact_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    margin: 1vh 2%;
+}
+
+.build_artifact_separator {
+    font-size: xx-large;
+    margin-top: 2vh;
+}
+
+.build_set_separator {
+    border: solid 2px var(--tertiary_color);
+
+    height: 10vh;
+    margin: 2vh 1vw 0vh 1vw;
+}
+
+.build_material_icon {
+    width: 9vh;
+    max-width: inherit;
+    border-top-left-radius: 8%;
+    border-top-right-radius: 8%;
+    border-bottom-right-radius: 20%;
+
+    background: linear-gradient(to bottom right, transparent 50%, black 100%);
+}
+
+.build_material_icon_small {
+    width: 8vh;
+    max-width: inherit;
+    border-top-left-radius: 8%;
+    border-top-right-radius: 8%;
+    border-bottom-right-radius: 20%;
+
+    background: linear-gradient(to bottom right, transparent 50%, black 100%);
+}
+
+.artifact_substat {
+    font-size: small;
+}
+
+.artifact_img {
+    width: 3vw;
+    margin-left: 1vw;
+}
+
+.artifact_img_small {
+    width: 2.5vw;
+}
+
+.material_1_stars {
+    background-color: var(--material_1_stars);
+}
+
+.material_2_stars {
+    background-color: var(--material_2_stars);
+}
+
+.material_3_stars {
+    background-color: var(--material_3_stars);
+}
+
+.material_4_stars {
+    background-color: var(--material_4_stars);
+}
+
+.material_5_stars {
+    background-color: var(--material_5_stars);
+}
+
+.ranking_panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2vh 1vw;
+    margin-top: 1vh;
+
+    border: solid 2px var(--tertiary_color);
+    border-radius: 10px;
+
+    color: var(--light_text);
+
+    text-wrap: wrap;
+
+    background-color: var(--secondary_color_opacity);
+}
+
+.ranking_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.ranking_title {
+    margin-bottom: 1vh;
+
+    font-size: medium;
+}
+
+.rank_column {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rank_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 3vw;
+    padding: 1vh;
+
+    /* border: solid 1px var(--tertiary_color); */
+    /* border-radius: 10px; */
+}
+
+.rank_chart_container {
+    flex: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rank_tag {
+    font-size: smaller;
+}
+
+.rank_value {
+    font-size: larger;
+}
+
+.rank_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1vh 0.3vw;
+    
+    border-left: solid 2px var(--tertiary_color);
+    border-right: solid 2px var(--tertiary_color);
+    border-bottom: solid 2px var(--tertiary_color);
+}
+
+.rank_row_top {
+    border-top: solid 2px var(--tertiary_color);
+}
+
+.rank_data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 3vw;
+
+    font-size: small;
+
+    padding-right: 1vw;
+}
+
+.rank_data_long {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 5vw;
+
+    font-size: small;
+}
+
+.ranking_chart {
+    max-width: 20vw;
+    max-height: 10vw;
+
+    margin-top: 1vh;
+}
+
+.ranking_chart_short {
+    max-height: 5vw;
+
+    margin-top: 1vh;
+    margin-left: 1vw;
+}
+
+.ranking_chart_long {
+    max-width: 20vw;
+
+    margin-top: 1vh;
+}
+
+.high_rank {
+    color: var(--high_rank);
+}
+
+.medium_rank {
+    color: var(--medium_rank);
+}
+
+.low_rank {
+    color: var(--low_rank);
+}
+
+.character_team_title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 3vh;
+}
+
+.character_team_description {
+    margin: 1vh 1vw;
+}
+
+.attribute_panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 0.5vh 0.5vw;
+
+    margin: 1vh 0vw;
+
+    border: solid 2px var(--tertiary_color);
+    border-radius: 10px;
+
+    color: var(--light_text);
+
+    text-wrap: wrap;
+
+    background-color: var(--secondary_color_opacity);
+}
+
+.attribute_img {
+    width: 2vw;
+    margin-right: 0.5vw;
+}
+
+.attribute_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    margin: 1vh 1vw;
+
+    font-size: small;
+}
+
+.traveler_elements_buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+
+    margin: 2vh 0vw;
+}
+
+.traveler_button_element_icon {
+    width: 3vw;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.traveler_button_Pyro:hover {
+    box-shadow: 0 5px 5px var(--pyro);
+}
+
+.traveler_button_Electro:hover {
+    box-shadow: 0 5px 5px var(--electro);
+}
+
+.traveler_button_Hydro:hover {
+    box-shadow: 0 5px 5px var(--hydro);
+}
+
+.traveler_button_Cryo:hover {
+    box-shadow: 0 5px 5px var(--cryo);
+}
+
+.traveler_button_Anemo:hover {
+    box-shadow: 0 5px 5px var(--anemo);
+}
+
+.traveler_button_Geo:hover {
+    box-shadow: 0 5px 5px var(--geo);
+}
+
+.traveler_button_Dendro:hover {
+    box-shadow: 0 5px 5px var(--dendro);
+}

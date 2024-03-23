@@ -1,0 +1,439 @@
+/* Form style */
+
+.search_form_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 80%;
+
+    color: var(--light_text);
+}
+
+.search_form_characters_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 80%;
+
+    color: var(--light_text);
+
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+}
+
+.sort_container {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.search_form {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.search_form_text_input {
+    height: 1.5vh;
+    padding: 1.5vh;
+    font-size: 2vh;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+
+    background-color: var(--light_background);
+    color: var(--dark_text);
+}
+
+.small_input {
+    width: 30% !important;
+}
+
+.search_button {
+    padding: 2.4vh;
+    background: var(--secondary_color);
+    cursor: pointer;
+
+    background-image: url('../images/icons/loupe.svg');
+    background-size: cover;
+
+    border: none;
+}
+
+.search_button:hover {
+    background: var(--tertiary_color);
+
+    background-image: url('../images/icons/loupe.svg');
+    background-size: cover;
+
+    border: none;
+}
+
+.search_random_button {
+    padding: 2.4vh;
+    background: var(--secondary_color);
+    cursor: pointer;
+
+    background-image: url('../images/icons/card_random.svg');
+    background-size: cover;
+
+    border: none;
+}
+
+.search_random_button:hover {
+    background: var(--tertiary_color);
+
+    background-image: url('../images/icons/card_random.svg');
+    background-size: cover;
+
+    border: none;
+}
+
+.filter_container {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 33%;
+}
+
+.filter_container div {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.extra_filters_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--secondary_color);
+    border: none;
+    border-radius: 30px;
+
+    width: 90%;
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.viability_tag {
+    color: var(--light_text);
+}
+
+.filters_elements,
+.filters_archetypes,
+.filters_viabilities,
+.filters_characters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    padding: 2vh;
+    width: 90%;
+}
+
+.filters_elements div,
+.filters_archetypes div,
+.filters_viabilities div,
+.filters_characters div {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#toggle_all_elements_button,
+#toggle_all_archetypes_button,
+#toggle_all_viabilities_button,
+#toggle_all_characters_button {
+    width: 5vh;
+    font-size: large;
+}
+
+
+
+
+
+
+
+/* Result style */
+
+.result_container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+
+.team_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    margin: 1vh;
+    margin-left: 4vh;
+    margin-right: 4vh;
+
+    width: 30vw;
+}
+
+.toolbox_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.team_id {
+    position: relative;
+    display: inline-block;
+
+    font-size: 1.5vh;
+
+    border-radius: 5px;
+
+    padding: 0.5vh;
+    margin-left: 1vh;
+
+    color: var(--light_text);
+
+    background-color: var(--dark_background);
+
+    cursor: pointer;
+}
+
+.link_team_button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.link_team_button>img {
+    padding-top: 0.5vh;
+
+    width: 2vh;
+}
+
+.link_team_button>img:hover {
+    filter: invert(100%);
+}
+
+.fav_button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.fav_button>img {
+    padding-top: 0.5vh;
+    padding-right: 1vh;
+
+    width: 3vh;
+    filter: invert(96%) sepia(49%) saturate(5134%) hue-rotate(312deg) brightness(102%) contrast(101%);
+}
+
+.fav_button>img:hover {
+    filter: invert(96%) sepia(49%) saturate(5134%) hue-rotate(312deg) brightness(102%) contrast(101%) drop-shadow(0 0 0.75rem var(--star_shadow));
+}
+
+.team_name_container,
+.team_rotation_container,
+.team_archetype_container,
+.team_desc_container {
+    font-family: GenshinImpact;
+    font-size: 1.5vh;
+
+    padding: 0.5vh;
+
+    padding-left: 2vh;
+    padding-right: 2vh;
+}
+
+.team_name_container,
+.team_rotation_container,
+.team_archetype_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+.team_name_container {
+    font-size: 2.5vh;
+}
+
+.team_desc_container {
+    padding-bottom: 2vh;
+}
+
+/* Character style */
+
+.characters_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.character_container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0.2vh;
+
+    border-radius: 12px;
+    background-color: var(--light_background);
+
+    max-width: 7vw;
+}
+
+.character_container:hover {
+    box-shadow: 5px 5px 5px black;
+}
+
+.character_icon {
+    width: 13vh;
+    max-width: inherit;
+    border-top-left-radius: 8%;
+    border-top-right-radius: 8%;
+    border-bottom-right-radius: 20%;
+
+    background: linear-gradient(to bottom right, transparent 50%, black 100%);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.character_4_stars {
+    background-color: var(--character_4_stars);
+}
+
+.character_5_stars {
+    background-color: var(--character_5_stars);
+}
+
+.element_icon {
+    position: absolute;
+    top: 0.5vh;
+    left: 0.5vh;
+    width: 3.5vh;
+}
+
+.birthday_hat_icon {
+    position: absolute;
+    top: -30%;
+    left: 35%;
+
+    width: 2vw;
+}
+
+.constellation {
+    position: absolute;
+    top: 0.5vh;
+    right: 0.5vh;
+
+    padding: 0.3vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 2vh;
+
+    color: var(--light_text);
+    background-color: var(--shadow_background);
+    border-radius: 6px;
+}
+
+.rarity_container {
+    position: absolute;
+    bottom: 3vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.rarity {
+    width: 2vh;
+    filter: invert(71%) sepia(73%) saturate(869%) hue-rotate(2deg) brightness(108%) contrast(102%) drop-shadow(var(--star_shadow) 0px 0px 2px);
+}
+
+.character_name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: max-content;
+
+    color: var(--dark_text);
+    font-weight: bold;
+    font-family: GenshinImpact;
+
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+
+.character_name_short {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    font-size: 1.5vh;
+}
+
+.character_name_medium {
+    padding-top: 1.3vh;
+    padding-bottom: 1.1vh;
+    font-size: 1.2vh;
+}
+
+.character_name_long {
+    padding-top: 1.5vh;
+    padding-bottom: 1.1vh;
+    font-size: 0.95vh;
+}
+
+.result_counter_container {
+    font-size: 2.2vh;
+    color: var(--light_text);
+    margin-top: 5vh;
+    margin-bottom: 25vh;
+}
